@@ -1,4 +1,4 @@
-package com.b2w.recomendacoes.apirest.models;
+package com.b2w.recomendacoes.apirest.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,7 +18,7 @@ public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     
     private String name;
@@ -29,7 +30,7 @@ public class Customer implements Serializable {
         cascade = {CascadeType.ALL},
     	orphanRemoval = true
     )
-    List<ProductViews> productviews = new ArrayList<>();
+    List<ProductView> productviews = new ArrayList<>();
 
     public void setName(String name) {
         this.name = name;
@@ -46,11 +47,11 @@ public class Customer implements Serializable {
         return this.slug;
     }
     
-    public void setProductviews(List<ProductViews> productviews) {
+    public void setProductviews(List<ProductView> productviews) {
         this.productviews = productviews;
     }
     
-    public List<ProductViews> getProductviews() {
+    public List<ProductView> getProductviews() {
         return this.productviews;
     }
     
