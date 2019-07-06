@@ -12,19 +12,23 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "Product")
 @Table(name = "product")
 public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @JsonIgnore
     private Long id;
-    
-    private String name;
     
     private String slug;
     
+    private String name;
+    
+    @JsonIgnore
     private Double score;
     
     @OneToMany(
@@ -32,9 +36,16 @@ public class Product implements Serializable {
         cascade = {CascadeType.ALL},
     	orphanRemoval = true
     )
+    @JsonIgnore
     List<ProductView> productviews = new ArrayList<>();
+    
+    public Product() {}
 
-    public void setId(Long id) {
+    public Product(String name) {
+		this.name = name;
+	}
+
+	public void setId(Long id) {
         this.id = id;
     }
     

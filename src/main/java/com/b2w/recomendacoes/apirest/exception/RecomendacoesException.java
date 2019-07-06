@@ -12,9 +12,8 @@ public class RecomendacoesException extends Exception {
 		super();
 	}
 
-	public RecomendacoesException(Integer codigo, String mensagem) {
+	public RecomendacoesException(String mensagem) {
 		super(mensagem);
-		this.codigoErro = codigo;
 		this.mensagem = mensagem;
 	}
 	
@@ -26,10 +25,6 @@ public class RecomendacoesException extends Exception {
 	
 	public RecomendacoesException(String mensagem, Throwable cause) {
 		super(mensagem, cause);
-	}
-
-	public RecomendacoesException(String mensagem) {
-		super(mensagem);
 	}
 
 	public RecomendacoesException(Throwable cause) {
