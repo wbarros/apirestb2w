@@ -35,6 +35,7 @@ public class ProductViewService {
 	public List<ProductViewTO> getProductsView() {
 		List<ProductView> listProductView = productViewRepository.findAll(new Sort(Sort.Direction.DESC, "timeStamp"));
 		List<ProductViewTO> listProductViewTO = productViewToProductViewTO(listProductView);
+		
 		return listProductViewTO;
 	}
 	
@@ -51,6 +52,7 @@ public class ProductViewService {
 		productView.setProduct(productPersist);
 		
 		ProductView productViewSaved = productViewRepository.save(productView);
+		
 		return new ResponseEntity<>(productViewSaved, HttpStatus.OK);
 	}
 	

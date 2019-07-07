@@ -22,6 +22,7 @@ public class ProductService {
 	
 	public List<Product> getProducts() {
 		List<Product> listProduct = productRepository.findAll(new Sort(Sort.Direction.ASC, "name"));
+		
 		return listProduct;
 	}
 	
@@ -35,6 +36,7 @@ public class ProductService {
 			product.setScore(1.0);
 		else
 			product.setScore(0.0);
+		
 		return productRepository.save(product);
 	}
 	

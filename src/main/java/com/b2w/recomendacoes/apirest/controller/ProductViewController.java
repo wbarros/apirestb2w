@@ -20,19 +20,20 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(value="ProductViewController")
+@Api(value="API REST ProductView")
 
 public class ProductViewController {
 	
 	@Autowired
 	ProductViewService productViewService;
 	
-	@ApiOperation(value = "Products Views")
+	@ApiOperation(value = "Retorna todos os ProductViews")
 	@RequestMapping(value = "/product-views",  method = { RequestMethod.GET } ,produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<ProductViewTO> findAllProductView() {
 		return productViewService.getProductsView();
 	}
 	
+	@ApiOperation(value = "Adiciona um ProductViews")
 	@RequestMapping(value = "/product-views",  method = { RequestMethod.POST })
 	public @ResponseBody ResponseEntity<String> saveProductView(@RequestBody ProductViewTO productViewTO) {
 		try {

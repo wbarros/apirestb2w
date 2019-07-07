@@ -23,18 +23,7 @@ public class CustomerService {
 	
 	public List<Customer> getCustomers() {
 		List<Customer> listCustomer = customerRepository.findAll(new Sort(Sort.Direction.ASC, "name"));
-		//List<CustomerTO> listCustomerTO = customerToCustomerTO(listCustomer);
 		return listCustomer;
 	}
-	
-//	private List<CustomerTO> customerToCustomerTO(List<Customer> listCustomer) {
-//		List<CustomerTO> listCustomerTO = new ArrayList<>();
-//		
-//		for(Customer customer : listCustomer) {
-//			CustomerTO customerTO = new CustomerTO(customer.getName(), customer.getName());
-//			listCustomerTO.add(customerTO);
-//		}
-//		return listCustomerTO;
-//	}
 	
 }

@@ -17,19 +17,20 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(value="CustomerController")
+@Api(value="API REST Customer")
 
 public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
 	
-	@ApiOperation(value = "Customers")
+	@ApiOperation(value = "Retorna todos os clientes")
 	@RequestMapping(value = "/customers",  method = { RequestMethod.GET } ,produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Customer> findAllCustomer() {
 		return customerService.getCustomers();
 	}
 	
+	@ApiOperation(value = "Adiciona um novo cliente")
 	@RequestMapping(value = "/customers",  method = { RequestMethod.POST })
 	public @ResponseBody void saveCustomer(@RequestBody Customer customer) {
 		customerService.addCustomer(customer);

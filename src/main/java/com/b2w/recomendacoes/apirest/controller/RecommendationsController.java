@@ -16,24 +16,26 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(value="RecommendationsController")
+@Api(value="API REST Recommendations")
 @RequestMapping(value = "/recommendations")
 public class RecommendationsController {
 	
 	@Autowired
 	RecommendationsService recommendationsService;
 	
-	@ApiOperation(value = "Products Views")
+	@ApiOperation(value = "Retorna as recomendações do produto 1")
 	@RequestMapping(value = "/product-1",  method = { RequestMethod.GET } ,produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<RecommendationTO> recommendationsProduct1(Integer limit) {
 		return recommendationsService.recommendationsProduct1(limit);
 	}
 	
+	@ApiOperation(value = "Retorna as recomendações do produto 2")
 	@RequestMapping(value = "/product-2",  method = { RequestMethod.GET } ,produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<RecommendationTO> recommendationsProduct2(Integer limit) {
 		return recommendationsService.recommendationsProduct2(limit);
 	}
 	
+	@ApiOperation(value = "Retorna as recomendações do produto 3")
 	@RequestMapping(value = "/product-3",  method = { RequestMethod.GET } ,produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<RecommendationTO> recommendationsProduct3(Integer limit) {
 		return recommendationsService.recommendationsProduct3(limit);
