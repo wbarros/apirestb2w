@@ -1,6 +1,6 @@
 # apirestb2w
 
-#Configurando o banco de dados
+# Configurando o banco de dados
 	- Mysql 8
 		- usuario: mysql
 		- senha  : mysql
@@ -8,14 +8,14 @@
 			- CREATE DATABASE apirestb2w;
 
 
-#Como rodar este projeto
+# Como rodar este projeto
 	- Build
 		-Use o gerenciador de pacote maven (https://maven.apache.org/) para realizar o build.
 			- mvn clean install
 	- Run
 		- mvn spring-boot:run
 
-#Catálago de serviços
+# Catálago de serviços
 	- http://localhost:8080/swagger-ui.html#/
 
 # Tecnologias utilizadas neste projeto
